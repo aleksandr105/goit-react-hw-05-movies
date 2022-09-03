@@ -2,10 +2,12 @@ import { Form } from '../../components/Form/Form';
 import { useState, useEffect } from 'react';
 import { searchMovies } from '../../servise/api';
 import { MovieCard } from 'components/MovieCard/MovieCard';
+import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [query, setQuery] = useState(null);
   const [movies, setMovies] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const onSearch = ({ searchData }, { resetForm }) => {
     if (searchData.trim() === '') {
@@ -13,20 +15,21 @@ export const Movies = () => {
       return;
     }
     setQuery(searchData);
+    setSearchParams({ movieName: searchData });
     resetForm();
   };
 
   useEffect(() => {
-    if (!query) {
+    if (!query && !searchParams.get('movieName')) {
       return;
     }
 
-    searchMovies(query).then(res =>
+    searchMovies(query ?? searchParams.get('movieName')).then(res =>
       res.total_results === 0
         ? alert(`no movie was found by request ${query}`)
         : setMovies(res.results)
     );
-  }, [query]);
+  }, [query, searchParams]);
 
   return (
     <>

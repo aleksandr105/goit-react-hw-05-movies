@@ -50,10 +50,14 @@ export const MovieDetails = () => {
       )}
       <ul>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <NavLink to="cast" state={{ from: urlBack }}>
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to="reviews" state={{ from: urlBack }}>
+            Reviews
+          </NavLink>
         </li>
       </ul>
       <Outlet />

@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { movieReviews } from 'servise/api';
+import { Title } from 'pages/Cast/Cast.styled';
+import {
+  TextHellp,
+  ReviewsList,
+  ReviewsItem,
+  ReviewsAuthor,
+  ReviewsText,
+} from './Reviews.styled';
 
 const Reviews = () => {
   const [dataReviews, setDataReviews] = useState(null);
@@ -12,20 +20,20 @@ const Reviews = () => {
 
   return (
     <>
-      <h2>Reviews</h2>
+      <Title>Reviews</Title>
       {dataReviews && (
         <>
           {dataReviews.results.length === 0 && (
-            <h3>There are no reviews yet</h3>
+            <TextHellp>There are no reviews yet</TextHellp>
           )}
-          <ul>
+          <ReviewsList>
             {dataReviews.results.map(({ id, author, content }) => (
-              <li key={id}>
-                <h2>{author}</h2>
-                <p>{content}</p>
-              </li>
+              <ReviewsItem key={id}>
+                <ReviewsAuthor>{author}</ReviewsAuthor>
+                <ReviewsText>{content}</ReviewsText>
+              </ReviewsItem>
             ))}
-          </ul>
+          </ReviewsList>
         </>
       )}
     </>

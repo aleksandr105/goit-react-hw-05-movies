@@ -20,7 +20,7 @@ zapoznania się z ustawieniami dodatkowych opcji
 6. Utwórz bazowe zależności projektu przy pomocy polecenia `npm install`.
 7. Włącz tryb pracy, wykonując polecenie `npm start`.
 8. Przejdź w przeglądarce pod adres
-   [http://localhost:3000](http://localhost:3000). Ta strona będzie
+   [http://localhost:3000/](http://localhost:3000/). Ta strona będzie
    automatycznie przeładowywać się po zapisaniu zmian w plikach projektu.
 
 ## Deployment

@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { movieCredits } from 'servise/api';
 import { useParams } from 'react-router-dom';
+import { Title } from './Cast.styled';
+import {
+  Container,
+  CastList,
+  CastItem,
+  CastPhoto,
+  CastTitle,
+  CastText,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -14,13 +23,13 @@ const Cast = () => {
     'https://wide-w.com/wp-content/uploads/2018/11/gerb-i-flag-ukrainy-1-1536x1024.jpg';
 
   return (
-    <>
-      <h2>Cast</h2>
+    <Container>
+      <Title>Cast</Title>
       {dataCast && (
-        <ul>
+        <CastList>
           {dataCast.cast.map(({ cast_id, original_name, profile_path }) => (
-            <li key={cast_id}>
-              <img
+            <CastItem key={cast_id}>
+              <CastPhoto
                 loading="lazy"
                 src={
                   profile_path
@@ -28,14 +37,15 @@ const Cast = () => {
                     : plugUrl
                 }
                 alt={original_name}
-                width="350px"
               />
-              <p>{original_name}</p>
-            </li>
+              <CastTitle>
+                <CastText>{original_name}</CastText>
+              </CastTitle>
+            </CastItem>
           ))}
-        </ul>
+        </CastList>
       )}
-    </>
+    </Container>
   );
 };
 

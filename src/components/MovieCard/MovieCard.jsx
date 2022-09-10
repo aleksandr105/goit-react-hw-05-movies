@@ -1,5 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { MovieItem, MovieItemPhoto } from './MovieCard.styled';
+import {
+  MovieItem,
+  MovieItemPhoto,
+  TitleContainer,
+  TitleText,
+} from './MovieCard.styled';
 
 export const MovieCard = ({ original_title, poster_path, id, url }) => {
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
@@ -16,9 +21,9 @@ export const MovieCard = ({ original_title, poster_path, id, url }) => {
           src={poster_path ? imgUrl : plugUrl}
           alt={original_title}
         />
-        <div>
-          <p>{original_title}</p>
-        </div>
+        <TitleContainer>
+          <TitleText>{original_title}</TitleText>
+        </TitleContainer>
       </Link>
     </MovieItem>
   );

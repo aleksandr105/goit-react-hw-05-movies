@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { movieCredits } from 'servise/api';
 import { useParams } from 'react-router-dom';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [dataCast, setDataCast] = useState(null);
 
@@ -18,8 +18,8 @@ export const Cast = () => {
       <h2>Cast</h2>
       {dataCast && (
         <ul>
-          {dataCast.cast.map(({ id, original_name, profile_path }) => (
-            <li key={id}>
+          {dataCast.cast.map(({ cast_id, original_name, profile_path }) => (
+            <li key={cast_id}>
               <img
                 loading="lazy"
                 src={
@@ -38,3 +38,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

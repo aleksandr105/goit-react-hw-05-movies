@@ -5,14 +5,18 @@ export const FormSearch = styled(Form)`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 420px;
+  height: 45px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 4px;
+  border: 2px solid black;
   overflow: hidden;
+  margin: 30px auto 50px auto;
 `;
 
 export const ButtonForm = styled.button`
   display: inline-block;
+  background-color: silver;
   width: 48px;
   height: 48px;
   border: 0;

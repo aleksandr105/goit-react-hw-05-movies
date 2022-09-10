@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { searchMovies } from '../../servise/api';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { useSearchParams } from 'react-router-dom';
+import { MovieList, Container } from '../Home/Home.styled';
 
-export const Movies = () => {
+const Movies = () => {
   const [query, setQuery] = useState(null);
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,10 +33,10 @@ export const Movies = () => {
   }, [query, searchParams]);
 
   return (
-    <>
+    <Container>
       <Form onSearch={onSearch} />
       {movies && (
-        <ul>
+        <MovieList>
           {movies.map(({ id, original_title, poster_path }) => (
             <MovieCard
               key={id}
@@ -44,8 +45,10 @@ export const Movies = () => {
               poster_path={poster_path}
             />
           ))}
-        </ul>
+        </MovieList>
       )}
-    </>
+    </Container>
   );
 };
+
+export default Movies;

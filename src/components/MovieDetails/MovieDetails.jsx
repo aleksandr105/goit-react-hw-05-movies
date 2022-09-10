@@ -6,9 +6,9 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { movieDetails } from 'servise/api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
   const location = useLocation();
@@ -60,7 +60,11 @@ export const MovieDetails = () => {
           </NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+export default MovieDetails;

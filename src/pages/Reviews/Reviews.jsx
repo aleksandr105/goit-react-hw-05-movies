@@ -21,20 +21,18 @@ const Reviews = () => {
   return (
     <>
       <Title>Reviews</Title>
-      {dataReviews && (
-        <>
-          {dataReviews.results.length === 0 && (
-            <TextHellp>There are no reviews yet</TextHellp>
-          )}
-          <ReviewsList>
-            {dataReviews.results.map(({ id, author, content }) => (
-              <ReviewsItem key={id}>
-                <ReviewsAuthor>{author}</ReviewsAuthor>
-                <ReviewsText>{content}</ReviewsText>
-              </ReviewsItem>
-            ))}
-          </ReviewsList>
-        </>
+      {dataReviews?.results.length === 0 && (
+        <TextHellp>There are no reviews yet</TextHellp>
+      )}
+      {dataReviews && dataReviews.results.length !== 0 && (
+        <ReviewsList>
+          {dataReviews.results.map(({ id, author, content }) => (
+            <ReviewsItem key={id}>
+              <ReviewsAuthor>{author}</ReviewsAuthor>
+              <ReviewsText>{content}</ReviewsText>
+            </ReviewsItem>
+          ))}
+        </ReviewsList>
       )}
     </>
   );

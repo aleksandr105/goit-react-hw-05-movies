@@ -10,9 +10,7 @@ export const Layout = () => {
           <nav>
             <NaviList>
               <li>
-                <NaviLink exact to="/">
-                  Home
-                </NaviLink>
+                <NaviLink to="/">Home</NaviLink>
               </li>
               <li>
                 <NaviLink to="movies">Movies</NaviLink>

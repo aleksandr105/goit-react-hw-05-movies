@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { movieCredits } from 'servise/api';
 import { useParams } from 'react-router-dom';
 import { Title } from './Cast.styled';
+import { TextHellp } from 'pages/Reviews/Reviews.styled';
 import {
   Container,
   CastList,
@@ -25,7 +26,11 @@ const Cast = () => {
   return (
     <Container>
       <Title>Cast</Title>
-      {dataCast && (
+      {dataCast?.cast.length === 0 && (
+        <TextHellp>Sorry no photos of the cast</TextHellp>
+      )}
+
+      {dataCast && dataCast.cast.length !== 0 && (
         <CastList>
           {dataCast.cast.map(({ cast_id, original_name, profile_path }) => (
             <CastItem key={cast_id}>

@@ -14,5 +14,9 @@ export const LinkToHome = styled(Link)`
   display: block;
   font-size: 20px;
   font-weight: 600;
-  text-decoration: underline;
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
 `;

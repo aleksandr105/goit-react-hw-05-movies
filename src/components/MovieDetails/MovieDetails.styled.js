@@ -64,11 +64,11 @@ export const LinkList = styled.ul`
 `;
 
 export const LinkItem = styled(NavLink)`
-  color: yellow;
+  color: blue;
   padding: 15px 5px;
   font-weight: 700;
 
   &.active {
-    color: blue;
+    color: yellow;
   }
 `;

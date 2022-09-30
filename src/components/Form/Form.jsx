@@ -5,6 +5,7 @@ import {
   ButtonForm,
   InputSearch,
 } from '../../components/Form/Form.styled';
+import PropTypes from 'prop-types';
 
 let initialValues = {
   searchData: '',
@@ -30,4 +31,8 @@ export const Form = ({ onSearch }) => {
       </Formik>
     </>
   );
+};
+
+Form.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };

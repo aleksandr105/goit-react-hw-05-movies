@@ -5,6 +5,7 @@ import {
   TitleContainer,
   TitleText,
 } from './MovieCard.styled';
+import PropTypes from 'prop-types';
 
 export const MovieCard = ({ original_title, poster_path, id, url }) => {
   const imgUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
@@ -27,4 +28,11 @@ export const MovieCard = ({ original_title, poster_path, id, url }) => {
       </Link>
     </MovieItem>
   );
+};
+
+MovieCard.propTypes = {
+  original_title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string,
 };
